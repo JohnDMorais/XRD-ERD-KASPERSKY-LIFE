@@ -1,0 +1,157 @@
+<!-- KSC Custom Decoders -->
+
+<decoder name="kaspersky_decoder">
+  <prematch>event@23668</prematch>
+</decoder>
+
+<!-- или доменное имя сервера KSC, идущее в логах перед |11.0.0.0 - например: KES для лога KES|11.0.0.0
+<decoder name="Kaspersky">
+  <prematch>KES</prematch>
+</decoder>
+-->
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>hdn="(\S+)"</regex>
+  <order>host</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>hip="(\d+.\d+.\d+.\d+)"</regex>
+  <order>dstip</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>tdn="(\.*)"</regex>
+  <order>KES.module</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>etdn="(\.*)"</regex>
+  <order>KES.module.action</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>gn="(\.*)"</regex>
+  <order>KES.group</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>kscfqdn="(\.*)"</regex>
+  <order>KES.server</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>event@(\d+)</regex>
+  <order>KES.event</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>https://(\.*)"|http://(\.*)"</regex>
+  <order>url</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p1="(\.*)"</regex>
+  <order>KES.p1</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p2="(\.*)"</regex>
+  <order>KES.p2</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p3="(\.*)"</regex>
+  <order>KES.p3</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p4="(\.*)"</regex>
+  <order>KES.p4</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p5="(\.*)"</regex>
+  <order>KES.p5</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p6="(\.*)"</regex>
+  <order>KES.p6</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p7="(\.*)"</regex>
+  <order>KES.p7</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p8="(\.*)"</regex>
+  <order>KES.p8</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>\\\\(\.*)"</regex>
+  <order>dstuser</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>et="(\.*)"</regex>
+  <order>KES.event.code</order>
+</decoder>
+<!-- decoder novos kasper -->
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p9="(\.*)"</regex>
+  <order>KES.p9</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p10="(\.*)"</regex>
+  <order>KES.p10</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p11="(\.*)"</regex>
+  <order>KES.p11</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p12="(\.*)"</regex>
+  <order>KES.p12</order>
+</decoder>
+
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>p13="(\.*)"</regex>
+  <order>KES.p13</order>
+</decoder>
+
+<!-- campo "kscfqdn" está correto nos seus decoders, mas no log aparece "kscfqdn=" porém o correto é "kscfqdn=" -->
+<decoder name="kaspersky_field">
+  <parent>kaspersky_decoder</parent>
+  <regex>kscfqdn="(\.*)"</regex>
+  <order>KES.server.fqdn</order>
+</decoder>
