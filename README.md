@@ -122,23 +122,89 @@ Exemplos de informações extraídas:
 
 ## Rules
 
-As rules utilizam os eventos decodificados para gerar alertas de segurança no Wazuh.
+As rules personalizadas realizam a classificação e correlação dos eventos processados pelos decoders, atribuindo níveis de severidade, grupos de eventos e mapeamento MITRE ATT&CK quando aplicável.
 
-Entre as detecções disponíveis podem estar:
+As regras contemplam eventos do **Kaspersky Endpoint Security (KES)** e do **Kaspersky Security Center (KSC)**, incluindo:
 
-* Malware detectado
-* Malware removido
-* Malware bloqueado
-* Arquivos colocados em quarentena
-* Falha na remoção
-* Atualização de banco de assinaturas
-* Alterações de política
-* Eventos críticos do Endpoint Security
-* Eventos de Network Attack Blocker
-* Detecções de comportamento suspeito
-* Eventos de proteção em tempo real
+### Proteção Antimalware
 
-As regras podem ser adaptadas conforme a política de monitoramento da organização.
+* Detecção de malware.
+* Objetos suspeitos.
+* Objetos bloqueados.
+* Malware removido.
+* Malware não removido.
+* Objetos excluídos.
+* Arquivos restaurados/backup.
+* Arquivos protegidos por senha.
+* Malware detectado e reportado.
+* Malware detectado e permitido.
+
+### Proteção Web
+
+* URLs bloqueadas.
+* URLs classificadas como suspeitas.
+* Bloqueios realizados pelo Kaspersky Security Network (KSN).
+
+### Controle de Aplicações
+
+* Execução de aplicações bloqueadas.
+* Eventos relacionados ao controle de aplicações.
+
+### Controle de Dispositivos
+
+* Dispositivo conectado.
+* Dispositivo removido.
+* Conexão de dispositivo negada.
+
+### Detecção de Ataques
+
+* Network Attack Blocker.
+* Tentativas de reconhecimento de rede.
+* Detecção de ataques de rede.
+* Eventos classificados como *attack*.
+
+### Proteção Contra Manipulação
+
+* Eventos relacionados à tentativa de desativação ou alteração dos mecanismos de proteção.
+* Detecções associadas às técnicas MITRE ATT&CK de evasão de defesa.
+
+### Administração do Kaspersky Security Center (KSC)
+
+As regras também monitoram eventos administrativos do Kaspersky Security Center, incluindo:
+
+* Autenticação bem-sucedida.
+* Falhas de autenticação.
+* Atualização das bases antivírus.
+* Hosts não visíveis.
+* Hosts em estado de alerta.
+* Hosts em estado crítico.
+* Alteração de tarefas.
+* Execução de tarefas.
+* Inclusão, alteração e remoção de políticas.
+* Inclusão e remoção de grupos administrativos.
+* Movimentação de hosts entre grupos.
+* Inclusão de pacotes de instalação.
+* Criação de relatórios.
+* Eventos de licenciamento.
+* Detecção de excesso de eventos (Spam Events).
+
+### MITRE ATT&CK
+
+Sempre que possível, as regras realizam o mapeamento para técnicas do MITRE ATT&CK, incluindo, entre outras:
+
+* T1204 – User Execution
+* T1562 – Impair Defenses
+* T1046 – Network Service Discovery
+* T1016 – System Network Configuration Discovery
+* T1049 – System Network Connections Discovery
+* T1110 – Brute Force
+* T1078 – Valid Accounts
+* T1072 – Software Deployment Tools
+* T1200 – Hardware Additions
+* T1587.003 – Malware Development
+
+Os níveis de severidade das regras variam conforme a criticidade do evento, permitindo priorização dos alertas e melhor integração com processos de monitoramento e resposta a incidentes.
+
 
 ---
 
